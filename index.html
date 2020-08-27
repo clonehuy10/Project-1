@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,18 +12,64 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+      <p id="message"></p>
+      <section>
+        <form id="sign-up-form">
+          <h3>Sign Up</h3>
+          <label for="sign-up-email">Email</label>
+          <input id="sign-up-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+          <label for="sign-up-password">Password</label>
+          <input id="sign-up-password" type="password" placeholder="********" name="credentials[password]"><br>
+          <label for="password-confirmation">Password Comfirmation</label>
+          <input id="password-confirmation" type="password" placeholder="********" name="credentials[password_confirmation]">
+          <input type="submit" value="Sign Up">
+        </form>
+      </section>
+
+      <section>
+        <form id="sign-in-form">
+          <h3>Sign In</h3>
+          <label for="sign-in-email">Email</label>
+          <input id="sign-in-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+          <label for="sign-in-password">Password</label>
+          <input id="sign-in-password" type="password" placeholder="********" name="credentials[password]">
+          <input type="submit" value="Sign In">
+        </form>
+      </section>
+
+      <section>
+        <form id="change-password">
+          <h3>Change Password</h3>
+          <label for="old-password">Old Password</label>
+          <input id="old-password" type="password" placeholder="********" name="passwords[old]"><br>
+          <label for="new-password">New Password</label>
+          <input id="new-password" type="password" placeholder="********" name="passwords[new]">
+          <input type="submit" value="Change Password">
+        </form>
+      </section>
+
+      <section>
+        <form id="sign-out">
+          <input id="sign-out-form" type="submit" value="Sign Out">
+        </form>
+      </section>
+
       <div class="container">
         <div class="row">
-          <div class="col-4 col-lg-4 box" id="1">3x3</div>
-          <div class="col-4 col-lg-4 box" id="2">3x3</div>
-          <div class="col-4 col-lg-4 box" id="3">3x3</div>
-          <div class="col-4 col-lg-4 box" id="4">3x3</div>
-          <div class="col-4 col-lg-4 box" id="5">3x3</div>
-          <div class="col-4 col-lg-4 box" id="6">3x3</div>
-          <div class="col-4 col-lg-4 box" id="7">3x3</div>
-          <div class="col-4 col-lg-4 box" id="8">3x3</div>
-          <div class="col-4 col-lg-4 box" id="9">3x3</div>
+          <div class="col-3 col-lg-2 box" id="1">1</div>
+          <div class="col-3 col-lg-2 box" id="2">2</div>
+          <div class="col-3 col-lg-2 box" id="3">3</div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-lg-2 box" id="4">4</div>
+          <div class="col-3 col-lg-2 box" id="5">5</div>
+          <div class="col-3 col-lg-2 box" id="6">6</div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-lg-2 box" id="7">7</div>
+          <div class="col-3 col-lg-2 box" id="8">8</div>
+          <div class="col-3 col-lg-2 box" id="9">9</div>
         </div>
       </div>
     </body>
