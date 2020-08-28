@@ -18,7 +18,8 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
-  $('.container').show()
+  $('.table').show()
+  $('#start-game').show()
 }
 const onSignInFailure = function () {
   $('#message').text('Sign in failed, please try again')
@@ -39,13 +40,15 @@ const onSignOutSuccess = function () {
   $('#sign-out').hide()
   $('#sign-up-form').show()
   $('#sign-in-form').show()
-  $('.container').hide()
+  $('.table').hide()
+  $('#start-game').hide()
 }
 const onSignOutFailure = function () {
   $('#message').text('Failed to sign out!!!!')
 }
 
-const onStartGameSuccess = function () {
+const onStartGameSuccess = function (response) {
+  store.game = response.game
   $('#message').text('LET PLAY!!!!')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -64,15 +67,24 @@ const onEndGame = function () {
   $('#end-game').hide()
   $('#restart').hide()
 }
-const onRestart = function () {
-  console.log('restart the game')
-}
+// const onRestart = function () {
+//   console.log('restart the game')
+// }
 
-let turn = 0
-const click = function () {
-  turn += 1
-  turn % 2 === 0 ? $('#1').text('O') : $('#1').text('X')
-}
+const player1 = 'O'
+const player2 = 'X'
+const winArray = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+
+  [0, 4, 8],
+  [2, 4, 6]
+]
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -84,7 +96,6 @@ module.exports = {
   onSignOutFailure,
   onStartGameSuccess,
   onStartGameFailure,
-  onEndGame,
-  onRestart,
-  click
+  onEndGame
+  // onRestart,
 }

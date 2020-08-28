@@ -31,7 +31,7 @@ const signOut = function (data) {
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
@@ -41,14 +41,24 @@ const startGame = function (data) {
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
+// const playGame = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'PATCH',
+//     header: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   startGame
+  // playGame
 }

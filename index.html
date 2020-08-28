@@ -14,31 +14,32 @@
     <body>
       <h1>Tic Tac Toe</h1>
       <p id="message"></p>
-      <section>
-        <form id="sign-up-form">
-          <h3>Sign Up</h3>
-          <label for="sign-up-email">Email</label>
-          <input id="sign-up-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
-          <label for="sign-up-password">Password</label>
-          <input id="sign-up-password" type="password" placeholder="********" name="credentials[password]"><br>
-          <label for="password-confirmation">Password Comfirmation</label>
-          <input id="password-confirmation" type="password" placeholder="********" name="credentials[password_confirmation]">
-          <input type="submit" value="Sign Up">
-        </form>
-      </section>
+      <section class="container signUpAndIn">
+        <div class="row">
+          <div class="col-6">
+            <form id="sign-up-form">
+              <h3>Sign Up</h3>
+              <label for="sign-up-email">Email</label><br>
+              <input id="sign-up-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+              <label for="sign-up-password">Password</label><br>
+              <input id="sign-up-password" type="password" placeholder="********" name="credentials[password]"><br>
+              <label for="password-confirmation">Password Comfirmation</label><br>
+              <input id="password-confirmation" type="password" placeholder="********" name="credentials[password_confirmation]"><br>
+              <input type="submit" value="Sign Up">
+            </form>
+          </div>
+          <div class="col-6 sign-in">
+            <form id="sign-in-form">
+              <h3>Sign In</h3>
+              <label for="sign-in-email">Email</label><br>
+              <input id="sign-in-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+              <label for="sign-in-password">Password</label><br>
+              <input id="sign-in-password" type="password" placeholder="********" name="credentials[password]"><br>
+              <input type="submit" value="Sign In">
+            </form>
+          </div>
+        </div>
 
-      <section>
-        <form id="sign-in-form">
-          <h3>Sign In</h3>
-          <label for="sign-in-email">Email</label>
-          <input id="sign-in-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
-          <label for="sign-in-password">Password</label>
-          <input id="sign-in-password" type="password" placeholder="********" name="credentials[password]">
-          <input type="submit" value="Sign In">
-        </form>
-      </section>
-
-      <section>
         <form id="change-password">
           <h3>Change Password</h3>
           <label for="old-password">Old Password</label>
@@ -47,9 +48,7 @@
           <input id="new-password" type="password" placeholder="********" name="passwords[new]">
           <input type="submit" value="Change Password">
         </form>
-      </section>
 
-      <section>
         <form id="sign-out">
           <input id="sign-out-form" type="submit" value="Sign Out">
         </form>
@@ -59,26 +58,42 @@
         <div id="button">
           <button id="start-game" type="button">Start the game!!!</button>
           <button id="end-game" type="button">Exit</button>
-          <button id="restart" type="button">Reset Table</button>
+          <!-- <button id="restart" type="button">Reset Table</button> -->
         </div>
       </section>
 
-      <div class="container">
+      <section class="container table">
+        <div class="row h-100 board">
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+          <div class="col-4 box"></div>
+        </div>
+      </section>
+
+      <!-- <div class="container">
         <div class="row">
-          <div class="box" id="1"></div>
-          <div class="box" id="2"></div>
-          <div class="box" id="3"></div>
+          <div class="cell" id="0" data-cell-index='0'></div>
+          <div class="cell" id="1" data-cell-index='1'></div>
+          <div class="cell" id="2" data-cell-index='2'></div>
         </div>
         <div class="row">
-          <div class="box" id="4"></div>
-          <div class="box" id="5"></div>
-          <div class="box" id="6"></div>
+          <div class="cell" id="3" data-cell-index='3'></div>
+          <div class="cell" id="4" data-cell-index='4'></div>
+          <div class="cell" id="5" data-cell-index='5'></div>
         </div>
         <div class="row">
-          <div class="box" id="7"></div>
-          <div class="box" id="8"></div>
-          <div class="box" id="9"></div>
+          <div class="cell" id="6" data-cell-index='6'></div>
+          <div class="cell" id="7" data-cell-index='7'></div>
+          <div class="cell" id="8" data-cell-index='8'></div>
         </div>
-      </div>
+      </div> -->
     </body>
 </html>

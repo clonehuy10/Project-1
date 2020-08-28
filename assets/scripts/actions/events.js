@@ -1,5 +1,6 @@
 'use strict'
 const getFormFields = require('./../../../lib/get-form-fields')
+const addNestedValue = require('./../../../lib/add-nested-value')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -48,39 +49,16 @@ const onEndGame = function (event) {
   event.preventDefault()
   ui.onEndGame()
 }
-const onRestart = function (event) {
-  event.preventDefault()
-  ui.onRestart()
-}
+// const onRestart = function (event) {
+//   event.preventDefault()
+//   ui.onRestart()
+// }
 
-const click1 = function () {
+const onBoxClick = function (event) {
   event.preventDefault()
-  ui.click()
-}
-const click2 = function (event) {
-  event.preventDefault()
-  console.log($('#2').val())
-}
-const click3 = function (event) {
-  event.preventDefault()
-}
-const click4 = function (event) {
-  event.preventDefault()
-}
-const click5 = function (event) {
-  event.preventDefault()
-}
-const click6 = function (event) {
-  event.preventDefault()
-}
-const click7 = function (event) {
-  event.preventDefault()
-}
-const click8 = function (event) {
-  event.preventDefault()
-}
-const click9 = function (event) {
-  event.preventDefault()
+  const clickCell = event.target
+  console.log(clickCell)
+  console.log('click')
 }
 
 module.exports = {
@@ -90,14 +68,6 @@ module.exports = {
   onSignOut,
   onStartGame,
   onEndGame,
-  onRestart,
-  click1,
-  click2,
-  click3,
-  click4,
-  click5,
-  click6,
-  click7,
-  click8,
-  click9,
+  // onRestart,
+  onBoxClick
 }
