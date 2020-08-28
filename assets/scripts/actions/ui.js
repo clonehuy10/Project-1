@@ -45,6 +45,34 @@ const onSignOutFailure = function () {
   $('#message').text('Failed to sign out!!!!')
 }
 
+const onStartGameSuccess = function () {
+  $('#message').text('LET PLAY!!!!')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#start-game').hide()
+  $('#end-game').show()
+  $('#restart').show()
+}
+const onStartGameFailure = function () {
+  $('#message').text('Error....... cannot start game, please try again!')
+}
+const onEndGame = function () {
+  $('#message').text('')
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#start-game').show()
+  $('#end-game').hide()
+  $('#restart').hide()
+}
+const onRestart = function () {
+  console.log('restart the game')
+}
+
+let turn = 0
+const click = function () {
+  turn += 1
+  turn % 2 === 0 ? $('#1').text('O') : $('#1').text('X')
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -53,5 +81,10 @@ module.exports = {
   onChangeSuccess,
   onChangeFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onStartGameSuccess,
+  onStartGameFailure,
+  onEndGame,
+  onRestart,
+  click
 }
