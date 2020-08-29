@@ -1,6 +1,5 @@
 'use strict'
 const getFormFields = require('./../../../lib/get-form-fields')
-const addNestedValue = require('./../../../lib/add-nested-value')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -54,11 +53,43 @@ const onEndGame = function (event) {
 //   ui.onRestart()
 // }
 
+const currentState = {
+  playerTurn: 'X',
+  table: ['', '', '', '', '', '', '', '', '']
+}
+let playerX = []
+let playerO = []
+const winArray = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
 const onBoxClick = function (event) {
   event.preventDefault()
-  const clickCell = event.target
-  console.log(clickCell)
-  console.log('click')
+  const boxLocation = event.target.id
+
+if ($('#' + boxLocation).html().length === 0) {
+    currentState.playerTurn = currentState.playerTurn === 'X' ? 'O' : 'X'
+    currentState.table[boxLocation] = currentState.playerTurn
+    $('#' + boxLocation).text(currentState.playerTurn)
+    if (currentState.playerTurn === 'X') {
+      playerX.push(boxLocation)
+    } else {
+      playerO.push(boxLocation)
+    }
+
+    // check winner
+
+    // api.playGame(boxLocation, currentState.playerTurn)
+  }
 }
 
 module.exports = {

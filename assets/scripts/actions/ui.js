@@ -49,6 +49,7 @@ const onSignOutFailure = function () {
 
 const onStartGameSuccess = function (response) {
   store.game = response.game
+  console.log(response)
   $('#message').text('LET PLAY!!!!')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -70,21 +71,6 @@ const onEndGame = function () {
 // const onRestart = function () {
 //   console.log('restart the game')
 // }
-
-const player1 = 'O'
-const player2 = 'X'
-const winArray = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-
-  [0, 4, 8],
-  [2, 4, 6]
-]
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,

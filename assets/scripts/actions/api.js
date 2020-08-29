@@ -45,20 +45,29 @@ const startGame = function (data) {
     }
   })
 }
-// const playGame = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games',
-//     method: 'PATCH',
-//     header: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
+const playGame = function (boxLocation, activePlayer) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: boxLocation,
+          value: activePlayer
+        },
+        over: false
+      }
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  startGame
-  // playGame
+  startGame,
+  playGame
 }
