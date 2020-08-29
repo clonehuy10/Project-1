@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./../store')
+// const api = require('./api')
 
 const onSignUpSuccess = function (response) {
   $('#message').text('Thanks for signing up ' + response.user.email)
@@ -18,7 +19,6 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
-  $('.table').show()
   $('#start-game').show()
 }
 const onSignInFailure = function () {
@@ -40,7 +40,6 @@ const onSignOutSuccess = function () {
   $('#sign-out').hide()
   $('#sign-up-form').show()
   $('#sign-in-form').show()
-  $('.table').hide()
   $('#start-game').hide()
 }
 const onSignOutFailure = function () {
@@ -49,13 +48,13 @@ const onSignOutFailure = function () {
 
 const onStartGameSuccess = function (response) {
   store.game = response.game
-  console.log(response)
   $('#message').text('LET PLAY!!!!')
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#start-game').hide()
   $('#end-game').show()
   $('#restart').show()
+  $('.table').show()
 }
 const onStartGameFailure = function () {
   $('#message').text('Error....... cannot start game, please try again!')
@@ -71,6 +70,67 @@ const onEndGame = function () {
 // const onRestart = function () {
 //   console.log('restart the game')
 // }
+
+// an empty table to keep track of the game with player turn
+const currentState = {
+  playerTurn: 'X',
+  table: ['', '', '', '', '', '', '', '', '']
+}
+// winning combination
+const winArray = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+
+  [0, 4, 8],
+  [2, 4, 6]
+]
+// checkwinner
+const checkWinner = function (currentState) {
+  return winArray.some(row => {
+    return row.every(index => {
+      return currentState.table[index].includes(currentState.playerTurn)
+    })
+  })
+}
+// PLAY GAME
+const playGame = function (boxLocation) {
+  // only allow player to play when they click on avaiable space
+  if ($('#' + boxLocation).html().length === 0) {
+  // rotate turn
+    currentState.playerTurn = currentState.playerTurn === 'X' ? 'O' : 'X'
+
+    // display the moves on table
+    currentState.table[boxLocation] = currentState.playerTurn
+    $('#' + boxLocation).text(currentState.playerTurn)
+    // check tie game
+    if (currentState.table.every(a => a === 'X' || a === 'O')) {
+      $('#message').text('Tie Game!!!!!!!')
+      $('.table').hide()
+      $('#restart').show()
+      // api.endGame(boxLocation, currentState.playerTurn)
+    }
+    // check winner
+    if (checkWinner(currentState)) {
+      $('#message').text('Player ' + currentState.playerTurn + ' won the game!!!!!')
+      $('.table').hide()
+      $('#restart').show()
+      // api.endGame(boxLocation, currentState.playerTurn)
+    }
+  }
+}
+const onRestartSuccess = function (response) {
+  store.game = response.game
+  currentState.playerTurn = 'X'
+  currentState.table = ['', '', '', '', '', '', '', '', '']
+  $('.box').text('')
+  $('.table').show()
+  $('#message').text('LET PLAY AGAIN!!!!')
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -82,6 +142,8 @@ module.exports = {
   onSignOutFailure,
   onStartGameSuccess,
   onStartGameFailure,
-  onEndGame
-  // onRestart,
+  onEndGame,
+  currentState,
+  playGame,
+  onRestartSuccess
 }

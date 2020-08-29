@@ -44,54 +44,25 @@ const onStartGame = function (event) {
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
 }
-const onEndGame = function (event) {
-  event.preventDefault()
-  ui.onEndGame()
-}
-// const onRestart = function (event) {
-//   event.preventDefault()
-//   ui.onRestart()
-// }
-
-const currentState = {
-  playerTurn: 'X',
-  table: ['', '', '', '', '', '', '', '', '']
-}
-let playerX = []
-let playerO = []
-const winArray = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-
-  [0, 4, 8],
-  [2, 4, 6]
-]
 
 const onBoxClick = function (event) {
   event.preventDefault()
   const boxLocation = event.target.id
 
-if ($('#' + boxLocation).html().length === 0) {
-    currentState.playerTurn = currentState.playerTurn === 'X' ? 'O' : 'X'
-    currentState.table[boxLocation] = currentState.playerTurn
-    $('#' + boxLocation).text(currentState.playerTurn)
-    if (currentState.playerTurn === 'X') {
-      playerX.push(boxLocation)
-    } else {
-      playerO.push(boxLocation)
-    }
-
-    // check winner
-
-    // api.playGame(boxLocation, currentState.playerTurn)
-  }
+  api.playGame(boxLocation, ui.currentState.playerTurn)
+    .then(ui.playGame(boxLocation))
 }
 
+const onEndGame = function (event) {
+  event.preventDefault()
+  ui.onEndGame()
+}
+const onRestart = function (event) {
+  event.preventDefault()
+  api.startGame()
+    .then(ui.onRestartSuccess)
+    .catch(ui.onStartGameFailure)
+}
 module.exports = {
   onSignUp,
   onSignIn,
@@ -99,6 +70,6 @@ module.exports = {
   onSignOut,
   onStartGame,
   onEndGame,
-  // onRestart,
+  onRestart,
   onBoxClick
 }

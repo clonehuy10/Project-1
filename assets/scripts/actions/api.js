@@ -63,11 +63,30 @@ const playGame = function (boxLocation, activePlayer) {
     }
   })
 }
+const endGame = function (boxLocation, activePlayer) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: boxLocation,
+          value: activePlayer
+        },
+        over: true
+      }
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   startGame,
-  playGame
+  playGame,
+  endGame
 }

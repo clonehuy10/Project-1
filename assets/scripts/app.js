@@ -12,7 +12,7 @@ $('#end-game').hide()
 $('#restart').hide()
 $('#start-game').hide()
 $('#end-game').hide()
-// $('.table').hide()
+$('.table').hide()
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
@@ -22,5 +22,5 @@ $(() => {
   $('#start-game').on('click', events.onStartGame)
   $('#end-game').on('click', events.onEndGame)
   $('.box').on('click', events.onBoxClick)
-  // $('#restart').on('click', events.onRestart)
+  $('#restart').on('click', events.onRestart)
 })
