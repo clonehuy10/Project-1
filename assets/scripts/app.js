@@ -8,11 +8,11 @@
 const events = require('./actions/events')
 $('#change-password').hide()
 $('#sign-out').hide()
-$('#end-game').hide()
 $('#restart').hide()
 $('#start-game').hide()
-$('#end-game').hide()
+$('#exit').hide()
 $('.table').hide()
+$('#number-game-played').hide()
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
@@ -20,7 +20,7 @@ $(() => {
   $('#change-password').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
   $('#start-game').on('click', events.onStartGame)
-  $('#end-game').on('click', events.onEndGame)
   $('.box').on('click', events.onBoxClick)
   $('#restart').on('click', events.onRestart)
+  $('#exit').on('click', events.onExit)
 })

@@ -1,21 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
-
-#change-password {
-
-}
-
 h1 {
   display: flex;
   justify-content: center;
 }
 
-#message {
-  display: flex;
-  justify-content: center;
-}
-
 .signUpAndIn {
-  height: 25vh;
+  height: 30vh;
   width: 100vh;
   padding-left: 250px;
 }
@@ -52,6 +42,16 @@ h1 {
     background-color: rgba(0, 130, 130, 1);
     cursor: pointer;
   }
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+}
+
+#number-game-played {
+  display: flex;
+  justify-content: center;
 }
 
 #button {

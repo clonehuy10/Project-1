@@ -81,6 +81,15 @@ const endGame = function (boxLocation, activePlayer) {
     }
   })
 }
+const getGame = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -88,5 +97,6 @@ module.exports = {
   signOut,
   startGame,
   playGame,
-  endGame
+  endGame,
+  getGame
 }

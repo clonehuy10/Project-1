@@ -3,6 +3,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+// Account related events
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -12,6 +13,7 @@ const onSignUp = function (event) {
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
 }
+
 const onSignIn = function (event) {
   event.preventDefault()
   const form = event.target
@@ -21,6 +23,7 @@ const onSignIn = function (event) {
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
 }
+
 const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
@@ -30,6 +33,7 @@ const onChangePassword = function (event) {
     .then(ui.onChangeSuccess)
     .catch(ui.onChangeFailure)
 }
+
 const onSignOut = function (event) {
   event.preventDefault()
 
@@ -38,6 +42,7 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
+// Game events
 const onStartGame = function (event) {
   event.preventDefault()
   api.startGame()
@@ -53,10 +58,11 @@ const onBoxClick = function (event) {
     .then(ui.playGame(boxLocation))
 }
 
-const onEndGame = function (event) {
+const onExit = function (event) {
   event.preventDefault()
-  ui.onEndGame()
+  ui.onExit()
 }
+
 const onRestart = function (event) {
   event.preventDefault()
   api.startGame()
@@ -69,7 +75,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onStartGame,
-  onEndGame,
+  onExit,
   onRestart,
   onBoxClick
 }
