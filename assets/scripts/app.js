@@ -5,7 +5,9 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-const events = require('./actions/events')
+const userEvents = require('./user/events')
+const gameEvents = require('./game/events')
+
 $('#change-password').hide()
 $('#sign-out').hide()
 $('#restart').hide()
@@ -15,12 +17,12 @@ $('.board').hide()
 $('#number-game-played').hide()
 
 $(() => {
-  $('#sign-up-form').on('submit', events.onSignUp)
-  $('#sign-in-form').on('submit', events.onSignIn)
-  $('#change-password').on('submit', events.onChangePassword)
-  $('#sign-out').on('submit', events.onSignOut)
-  $('#start-game').on('click', events.onStartGame)
-  $('.box').on('click', events.onBoxClick)
-  $('#restart').on('click', events.onRestart)
-  $('#exit').on('click', events.onExit)
+  $('#sign-up-form').on('submit', userEvents.onSignUp)
+  $('#sign-in-form').on('submit', userEvents.onSignIn)
+  $('#change-password').on('submit', userEvents.onChangePassword)
+  $('#sign-out').on('submit', userEvents.onSignOut)
+  $('#start-game').on('click', gameEvents.onStartGame)
+  $('.box').on('click', gameEvents.onBoxClick)
+  $('#restart').on('click', gameEvents.onRestart)
+  $('#exit').on('click', gameEvents.onExit)
 })
