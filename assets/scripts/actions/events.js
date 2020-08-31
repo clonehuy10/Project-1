@@ -51,7 +51,6 @@ const onStartGame = function (event) {
 }
 
 const onBoxClick = function (event) {
-  console.log(event.target)
   event.preventDefault()
   const boxLocation = event.target.id
 
