@@ -45,6 +45,7 @@ const startGame = function () {
     }
   })
 }
+
 const playGame = function (boxLocation, activePlayer, over) {
   // console.log('boxLocation: ', boxLocation)
   // console.log('activePlayer: ', activePlayer)
@@ -66,24 +67,7 @@ const playGame = function (boxLocation, activePlayer, over) {
     }
   })
 }
-const endGame = function (boxLocation, activePlayer) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game._id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: {
-      game: {
-        cell: {
-          index: boxLocation,
-          value: activePlayer
-        },
-        over: true
-      }
-    }
-  })
-}
+
 const getGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -100,6 +84,5 @@ module.exports = {
   signOut,
   startGame,
   playGame,
-  endGame,
   getGame
 }
