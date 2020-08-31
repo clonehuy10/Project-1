@@ -11,7 +11,7 @@ $('#sign-out').hide()
 $('#restart').hide()
 $('#start-game').hide()
 $('#exit').hide()
-$('.table').hide()
+$('.board').hide()
 $('#number-game-played').hide()
 
 $(() => {

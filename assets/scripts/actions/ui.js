@@ -13,6 +13,7 @@ const onSignUpFailure = function (response) {
 
 // Sign in and check number of game played
 const onGetGame = function (response) {
+  console.log(response)
   $('#number-game-played').text(`Number of games you have played: ${Object.keys(response.games).length} games`)
 }
 const onSignInSuccess = function (response) {
@@ -65,17 +66,18 @@ const onStartGameSuccess = function (response) {
   $('#sign-out').hide()
   $('#start-game').hide()
   $('#restart').show()
-  $('.table').show()
+  $('.board').show()
   $('#number-game-played').hide()
+  $('#exit').show()
 }
 const onStartGameFailure = function () {
   $('#message').text('Error....... cannot start game, please try again!')
 }
 
-// An empty table to keep track of the game with player turn
+// An empty board to keep track of the game with player turn
 const currentState = {
   playerTurn: 'X',
-  table: ['', '', '', '', '', '', '', '', '']
+  board: ['', '', '', '', '', '', '', '', '']
 }
 // Winning combination
 const winArray = [
@@ -94,7 +96,7 @@ const winArray = [
 const checkWinner = function (currentState) {
   return winArray.some(row => {
     return row.every(index => {
-      return currentState.table[index].includes(currentState.playerTurn)
+      return currentState.board[index].includes(currentState.playerTurn)
     })
   })
 }
@@ -103,25 +105,26 @@ const checkWinner = function (currentState) {
 const playGame = function (boxLocation) {
   // only allow player to play when they click on avaiable space
   if ($('#' + boxLocation).html().length === 0) {
-    // display the moves on table
-    currentState.table[boxLocation] = currentState.playerTurn
+    // display the moves on board
+    currentState.board[boxLocation] = currentState.playerTurn
     $('#' + boxLocation).text(currentState.playerTurn)
 
     // check winner
     if (checkWinner(currentState)) {
       $('#message').text('Player ' + currentState.playerTurn + ' won the game!!!!!')
-      $('.table').hide()
+      $('.board').hide()
       $('#restart').show()
-      $('#exit').show()
       api.endGame(boxLocation, currentState.playerTurn)
+      api.getGame()
+        .then(onGetGame)
     }
 
     // check tie game
-    if (currentState.table.every(a => a === 'X' || a === 'O')) {
+    if (currentState.board.every(a => a === 'X' || a === 'O')) {
       $('#message').text('Tie Game!!!!!!!')
-      $('.table').hide()
+      $('.board').hide()
       $('#restart').show()
-      api.playGame(boxLocation, currentState.playerTurn)
+      api.endGame(boxLocation, currentState.playerTurn)
     }
 
     // rotate turn
@@ -133,9 +136,9 @@ const playGame = function (boxLocation) {
 const onRestartSuccess = function (response) {
   store.game = response.game
   currentState.playerTurn = 'X'
-  currentState.table = ['', '', '', '', '', '', '', '', '']
+  currentState.board = ['', '', '', '', '', '', '', '', '']
   $('.box').text('')
-  $('.table').show()
+  $('.board').show()
   $('#message').text('LET PLAY AGAIN!!!!')
 }
 const onRestartFailure = function () {
@@ -146,7 +149,8 @@ const onRestartFailure = function () {
 const onExit = function () {
   api.getGame()
     .then(onGetGame)
-
+  currentState.playerTurn = 'X'
+  currentState.board = ['', '', '', '', '', '', '', '', '']
   $('.box').text('')
   $('#message').text('')
   $('#change-password').show()
@@ -155,7 +159,7 @@ const onExit = function () {
   $('#exit').hide()
   $('#restart').hide()
   $('#number-game-played').show()
-  $('.table').hide()
+  $('.board').hide()
 }
 
 module.exports = {

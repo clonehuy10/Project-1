@@ -1,61 +1,105 @@
 @import '~bootstrap/scss/bootstrap';
-h1 {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+body {
+  background-image: url('https://scx2.b-cdn.net/gfx/news/hires/2019/galaxy.jpg');
+  background-size: cover;
+}
+
+.title {
   display: flex;
+  font-family: 'Pacifico', cursive;
+  // font-size: 50px;
   justify-content: center;
 }
 
-.signUpAndIn {
-  height: 30vh;
+
+
+.container {
+  height: 100vh;
   width: 100vh;
-  padding-left: 250px;
+  // padding-left: 250px;
 }
 
-.table {
-  height: 50vh;
-  width: 50vh;
+.form {
+  justify-content: center;
+}
+
+#sign-up-form {
+  border: 2px solid white;
+  font-family: 'Righteous', cursive;
+  margin: 30px;
+  padding: 10px;
+}
+
+#sign-in-form {
+  border: 2px solid white;
+  font-family: 'Righteous', cursive;
+  margin: 30px;
+  padding: 10px 10px 70px 10px;
+}
+
+#change-password {
+  border: 2px solid white;
+  font-family: 'Righteous', cursive;
+  margin: auto;
+  padding: 10px;
+}
+
+#sign-out {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 
 .board {
-  margin: auto;
-  max-height: calc(50vh - 100px);
-  max-width: calc(50vh -100px);
+  margin:auto;
+  max-height: calc(45vh);
+  max-width: calc(45vh);
 }
 
 .box {
   align-items: center;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  display: flex;
+  text-align: center;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
   font-size: 10vh;
-  justify-content: center;
+  min-height: calc(100% / 3);
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   user-select: none;
-  min-height: calc(100% / 3);
 
   &:nth-child(3n) {
-    border-right: 0px;
+    border-right: 0;
   }
+
   &:nth-last-child(-1n + 3) {
-    border-bottom: 0px;
+    border-bottom: 0;
   }
+
   &:hover {
-    background-color: rgba(0, 130, 130, 1);
+    background-color: rgba(0, 130, 130, 0.7);
     cursor: pointer;
   }
 }
 
 #message {
   display: flex;
+  font-family: 'Satisfy', cursive;
+  font-size: 25px;
   justify-content: center;
 }
 
 #number-game-played {
   display: flex;
+  font-family: 'Satisfy', cursive;
+  font-size: 15px;
   justify-content: center;
 }
 
 #button {
   display: flex;
-  justify-content: center;
-  margin: 10px 10px;
+  justify-content: space-around;
+  margin: 20px;
 }
