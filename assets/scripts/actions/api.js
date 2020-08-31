@@ -45,7 +45,10 @@ const startGame = function () {
     }
   })
 }
-const playGame = function (boxLocation, activePlayer) {
+const playGame = function (boxLocation, activePlayer, over) {
+  // console.log('boxLocation: ', boxLocation)
+  // console.log('activePlayer: ', activePlayer)
+  // console.log('over: ', activePlayer)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
@@ -58,7 +61,7 @@ const playGame = function (boxLocation, activePlayer) {
           index: boxLocation,
           value: activePlayer
         },
-        over: false
+        over: over
       }
     }
   })

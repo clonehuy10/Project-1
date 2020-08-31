@@ -51,11 +51,11 @@ const onStartGame = function (event) {
 }
 
 const onBoxClick = function (event) {
+  console.log(event.target)
   event.preventDefault()
   const boxLocation = event.target.id
 
-  api.playGame(boxLocation, ui.currentState.playerTurn)
-    .then(ui.playGame(boxLocation))
+  ui.playGame(boxLocation)
 }
 
 const onExit = function (event) {

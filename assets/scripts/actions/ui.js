@@ -13,7 +13,6 @@ const onSignUpFailure = function (response) {
 
 // Sign in and check number of game played
 const onGetGame = function (response) {
-  console.log(response)
   $('#number-game-played').text(`Number of games you have played: ${Object.keys(response.games).length} games`)
 }
 const onSignInSuccess = function (response) {
@@ -61,6 +60,7 @@ const onSignOutFailure = function () {
 // Start a new game
 const onStartGameSuccess = function (response) {
   store.game = response.game
+
   $('#message').text('LET PLAY!!!!')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -109,22 +109,27 @@ const playGame = function (boxLocation) {
     currentState.board[boxLocation] = currentState.playerTurn
     $('#' + boxLocation).text(currentState.playerTurn)
 
-    // check winner
+    // game logic
     if (checkWinner(currentState)) {
+      // check winner
+
       $('#message').text('Player ' + currentState.playerTurn + ' won the game!!!!!')
       $('.board').hide()
       $('#restart').show()
-      api.endGame(boxLocation, currentState.playerTurn)
-      api.getGame()
-        .then(onGetGame)
-    }
+      // currentState.over = true
+      api.playGame(boxLocation, currentState.playerTurn, true)
+    } else if (currentState.board.every(a => a === 'X' || a === 'O')) {
+      // check tie game
 
-    // check tie game
-    if (currentState.board.every(a => a === 'X' || a === 'O')) {
       $('#message').text('Tie Game!!!!!!!')
       $('.board').hide()
       $('#restart').show()
-      api.endGame(boxLocation, currentState.playerTurn)
+      // currentState.over = true
+      api.playGame(boxLocation, currentState.playerTurn, true)
+    } else {
+      // keep playing
+
+      api.playGame(boxLocation, currentState.playerTurn, false)
     }
 
     // rotate turn
@@ -138,8 +143,10 @@ const onRestartSuccess = function (response) {
   currentState.playerTurn = 'X'
   currentState.board = ['', '', '', '', '', '', '', '', '']
   $('.box').text('')
-  $('.board').show()
   $('#message').text('LET PLAY AGAIN!!!!')
+  $('.board').show()
+  api.getGame()
+    .then(onGetGame)
 }
 const onRestartFailure = function () {
   $('#message').text('Sorry but you cannot play anymore, please come back at another time!')
