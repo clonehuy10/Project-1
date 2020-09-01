@@ -15,7 +15,7 @@ Tictactoe an intellectual game that is very familiar to each of us. With simple 
 - CSS
   + Bootstraps
   + Flexbox
--- Javascript
+- Javascript
 ## Technical Description
 #### User Path
 - Users are able to create new accounts to login.
