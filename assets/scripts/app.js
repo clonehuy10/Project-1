@@ -15,7 +15,8 @@ $('#start-game').hide()
 $('#exit').hide()
 $('.board').hide()
 $('#number-game-played').hide()
-$('.bean').hide()
+$('.bean1').hide()
+$('.bean2').hide()
 
 $(() => {
   $('#sign-up-form').on('submit', userEvents.onSignUp)

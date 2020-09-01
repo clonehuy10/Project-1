@@ -25,7 +25,7 @@ const onRestart = function (event) {
   event.preventDefault()
   api.startGame()
     .then(ui.onRestartSuccess)
-    .catch(ui.onStartGameFailure)
+    .catch(ui.onRestartFailure)
 }
 
 module.exports = {
