@@ -63,7 +63,7 @@ const playGame = function (boxLocation) {
       $('#message').text('Player ' + currentState.playerTurn + ' won the game!!!!!')
       $('.board').hide()
       $('#restart').show()
-      // currentState.over = true
+      $('.bean').show()
       api.playGame(boxLocation, currentState.playerTurn, true)
     } else if (currentState.board.every(a => a === 'X' || a === 'O')) {
       // check tie game
@@ -71,7 +71,7 @@ const playGame = function (boxLocation) {
       $('#message').text('Tie Game!!!!!!!')
       $('.board').hide()
       $('#restart').show()
-      // currentState.over = true
+      $('.bean').show()
       api.playGame(boxLocation, currentState.playerTurn, true)
     } else {
       // keep playing
@@ -92,6 +92,7 @@ const onRestartSuccess = function (response) {
   $('.box').text('')
   $('#message').text('LET PLAY AGAIN!!!!')
   $('.board').show()
+  $('.bean').hide()
   userApi.getGame()
     .then(userUi.onGetGame)
 }
@@ -114,6 +115,7 @@ const onExit = function () {
   $('#restart').hide()
   $('#number-game-played').show()
   $('.board').hide()
+  $('.bean').hide()
 }
 
 module.exports = {

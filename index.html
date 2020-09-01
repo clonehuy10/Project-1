@@ -12,55 +12,59 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1 class="text-white title">Tic Tac Toe</h1>
-      <h4 class="text-white title">~~The best game you have ever palyed~~</h4>
-      <p class="text-white" id="message"></p>
-      <p class="text-white" id="number-game-played"></p>
+      <h1 class="text-primary">Tic Tac Toe</h1>
+      <h2 class="text-white">~~~The best game you have ever played~~~</h2>
+      <p class="text-success" id="message"></p>
+      <p class="text-success" id="number-game-played"></p>
       <section class="container-fluid">
         <div class="row form">
           <div class="col-xs-5">
-            <form id="sign-up-form">
+            <form class="singleForm" id="sign-up-form">
               <h3 class="text-white">Sign Up</h3>
-              <label for="sign-up-email" class="text-white">Email</label><br>
-              <input id="sign-up-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
-              <label for="sign-up-password" class="text-white">Password</label><br>
-              <input id="sign-up-password" type="password" placeholder="********" name="credentials[password]"><br>
-              <label for="password-confirmation" class="text-white">Password Comfirmation</label><br>
-              <input id="password-confirmation" type="password" placeholder="********" name="credentials[password_confirmation]"><br><br>
-              <input type="submit" value="Sign Up">
+              <label for="sign-up-email" class="text-warning">Email</label><br>
+              <input class="input" id="sign-up-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+              <label for="sign-up-password" class="text-warning">Password</label><br>
+              <input class="input" id="sign-up-password" type="password" placeholder="********" name="credentials[password]"><br>
+              <label for="password-confirmation" class="text-warning">Password Comfirmation</label><br>
+              <input class="input" id="password-confirmation" type="password" placeholder="********" name="credentials[password_confirmation]"><br><br>
+              <input class="btn-info pop" type="submit" value="Sign Up">
             </form>
           </div>
           <div class="col-xs-5">
-            <form id="sign-in-form">
+            <form class="singleForm" id="sign-in-form">
               <h3 class="text-white">Sign In</h3>
-              <label for="sign-in-email" class="text-white">Email</label><br>
-              <input id="sign-in-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
-              <label for="sign-in-password" class="text-white">Password</label><br>
-              <input id="sign-in-password" type="password" placeholder="********" name="credentials[password]"><br><br>
-              <input type="submit" value="Sign In">
+              <label for="sign-in-email" class="text-warning">Email</label><br>
+              <input class="input" id="sign-in-email" type="email" placeholder="example@email.com" name="credentials[email]"><br>
+              <label for="sign-in-password" class="text-warning">Password</label><br>
+              <input class="input" id="sign-in-password" type="password" placeholder="********" name="credentials[password]"><br><br>
+              <input class="btn-info pop" type="submit" value="Sign In">
             </form>
           </div>
         </div>
 
         <div class="row">
-          <form id="change-password">
-            <h3 class="text-white">Change Password</h3>
-            <label for="old-password" class="text-white">Old Password</label>
-            <input id="old-password" type="password" placeholder="********" name="passwords[old]"><br>
-            <label for="new-password" class="text-white">New Password</label>
-            <input id="new-password" type="password" placeholder="********" name="passwords[new]"><br>
-            <input type="submit" value="Change Password">
+          <form class="singleForm" id="change-password">
+            <h3 class="text-white">Change Password</h3><br>
+            <label for="old-password" class="text-warning">Old Password</label>
+            <input class="input" id="old-password" type="password" placeholder="********" name="passwords[old]"><br><br>
+            <label for="new-password" class="text-warning">New Password</label>
+            <input class="input" id="new-password" type="password" placeholder="********" name="passwords[new]"><br><br>
+            <input class="btn-info pop" type="submit" value="Change Password">
           </form>
         </div>
 
         <form id="sign-out">
-          <input id="sign-out-form" type="submit" value="Sign Out">
+          <input class="btn-warning pop" id="sign-out-form" type="submit" value="Sign Out">
         </form>
 
         <div id="button">
-          <button id="start-game" type="button">Start the game!!!</button>
-          <button id="exit" type="button">Exit</button>
-          <button id="restart" type="button">Play Again</button>
+          <button class="btn-danger pop" id="start-game" type="button">Start the game!!!</button>
+          <button class="btn-danger pop" id="exit" type="button">Exit</button>
+          <button class="btn-success pop" id="restart" type="button">Play Again</button>
+        </div>
+
+        <div class="bean">
+          <img class="bean" src="https://media4.giphy.com/media/XfPPLB8O4qdtCO2t8R/giphy.gif" alt="MrBean Gif">
         </div>
 
       </section>
