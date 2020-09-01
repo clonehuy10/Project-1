@@ -4,14 +4,18 @@ Tictactoe an intellectual game that is very familiar to each of us. With simple 
 - First player will start with X.
 - Need to make three in a row to win.
 - Player cannot play on a spot which already has been played.
-## Demo
+## Image
+#### Wireframe
+![](image/wireframe.png)
+#### Demo
 ![](image/forReadMe.gif)
 ## Technologies Used
+- jQuery
 - HTML
-- Javascripts
 - CSS
   + Bootstraps
   + Flexbox
+-- Javascript
 ## Technical Description
 #### User Path
 - Users are able to create new accounts to login.
