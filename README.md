@@ -12,19 +12,17 @@ Tictactoe an intellectual game that is very familiar to each of us. With simple 
   + Flexbox
 - Javascript
 ## Technical Description
-#### User Path
+#### Account Path
 - Users are able to create new accounts to login.
 - Users are able to sign in with their accounts which have all their game history stored on the server.
 - Users are able to change password or sign out when they want after signing in.
-- Users are able to start a new game.
-- Users are able to restart or quit when they are playing.
-- Users are able to go back to previous screen where they can change password or sign out after quiting the game.
+- Users are able to see number of total game played.
 #### Game Path
+- Users are able to start a new game.
 - Users are able to start the game with X then rotate with O to play the game.
 - Users are prohibited to play on a played spot on the table.
 - Users are able to win if they get three in a row.
-- Users are able to restart the game after they finish the game.
-- Users are able to see number of total game played.
+- Users are able to restart or quit when they are playing.
 ## Image
 #### Wireframe
 ![](image/wireframe.png)
