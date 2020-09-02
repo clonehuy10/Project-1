@@ -4,11 +4,6 @@ Tictactoe an intellectual game that is very familiar to each of us. With simple 
 - First player will start with X.
 - Need to make three in a row to win.
 - Player cannot play on a spot which already has been played.
-## Image
-#### Wireframe
-![](image/wireframe.png)
-#### Demo
-![](image/forReadMe.gif)
 ## Technologies Used
 - jQuery
 - HTML
@@ -30,6 +25,11 @@ Tictactoe an intellectual game that is very familiar to each of us. With simple 
 - Users are able to win if they get three in a row.
 - Users are able to restart the game after they finish the game.
 - Users are able to see number of total game played.
+## Image
+#### Wireframe
+![](image/wireframe.png)
+#### Demo
+![](image/forReadMe.gif)
 ## Contributing
 If you would like to fork this repo and add more to it, you will need to run these commands to get verything set up:
 ```
