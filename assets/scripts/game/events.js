@@ -12,7 +12,6 @@ const onStartGame = function (event) {
 const onBoxClick = function (event) {
   event.preventDefault()
   const boxLocation = event.target.id
-
   ui.playGame(boxLocation)
 }
 

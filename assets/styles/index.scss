@@ -110,6 +110,20 @@ h2 {
   justify-content: center;
 }
 
+#player-turn {
+  display: flex;
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+  justify-content: center;
+}
+
+#message-failure {
+  display: flex;
+  font-family: 'Satisfy', cursive;
+  font-size: 30px;
+  justify-content: center;
+}
+
 #number-game-played {
   display: flex;
   font-family: 'Satisfy', cursive;
@@ -127,4 +141,12 @@ h2 {
   border-radius: 300px;
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
 }
+
+// @media screen and (min-width: 400px) {
+//   .bean {
+//
+//   }
+// }
